@@ -9,12 +9,15 @@
 #include <sys/types.h>
 #include <netinet/in.h>
 
+#include "../sockets/tcpsocket.h"
+
 namespace sockupp {
     class SockUtil {
         friend class Socket;
 
     private:
         static sockaddr getSockAddr(const std::string &);
+        static sockaddr getSockAddr(const std::string &, const uint16_t);
     };
 }
 

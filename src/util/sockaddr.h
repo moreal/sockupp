@@ -6,7 +6,7 @@
 #define SOCKUPP_SOCKADDR_H
 
 #include <string>
-#inlcude "sock.h"
+#include "sock.h"
 
 namespace sockupp {
     enum class ProtocolFamily {

@@ -8,6 +8,7 @@
 
 #include <arpa/inet.h>
 #include <netdb.h>
+#include <netinet/in.h>
 
 #include "sock.h"
 #include "sockaddr.h"
@@ -16,7 +17,8 @@ namespace sockupp {
     sockaddr SockUtil::getSockAddr(const std::string &addr) {
         const auto protocolFamily = SockAddrUtil::getProtocolFamily(addr);
 
-        sockaddr sockAddr;
+        struct sockaddr sockAddr;
+
         std::memset(&sockAddr, 0, sizeof sockAddr);
 
         if (protocolFamily != ProtocolFamily::IPV4 && protocolFamily != ProtocolFamily::IPV6)
@@ -59,7 +61,7 @@ namespace sockupp {
 
         if (error != 0 && result != nullptr) {
             freeaddrinfo(result);
-            return nullptr;
+            return sockAddr;
         }
 
         while (!result->ai_addr && result->ai_next) {
@@ -75,5 +77,29 @@ namespace sockupp {
         freeaddrinfo(result);
 
         return sockAddr;
+    }
+    sockaddr SockUtil::getSockAddr(const std::string &ip, const uint16_t port) {
+        auto protocolFamily = SockAddrUtil::getProtocolFamily(ip);
+
+        switch (protocolFamily) {
+            case ProtocolFamily::IPV4:
+                sockaddr_in sockaddrIn;
+                sockaddrIn.sin_family = AF_INET;
+                sockaddrIn.sin_port = port;
+                inet_pton(AF_INET, ip.c_str(), &sockaddrIn.sin_addr);
+                return *((sockaddr*) &sockaddrIn);
+
+            case ProtocolFamily::IPV6:
+                sockaddr_in6 sockaddrIn6;
+                sockaddrIn6.sin6_family = AF_INET6;
+                sockaddrIn6.sin6_port = port;
+                inet_pton(AF_INET6, ip.c_str(), &sockaddrIn6.sin6_addr);
+                return *((sockaddr*) &sockaddrIn6);
+
+            default:
+                sockaddr sockAddr;
+                std::memset(&sockAddr, 0, sizeof sockAddr);
+                return sockAddr;
+        }
     }
 }
