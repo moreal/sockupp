@@ -7,6 +7,8 @@
 
 #include "socket.h"
 
+#include <memory>
+
 namespace sockupp {
     class UdpSocket;
 
@@ -25,7 +27,6 @@ namespace sockupp {
                 
         int Bind(Socket& socket) noexcept;
         int Listen(int backlog = 32) noexcept;
-        UdpSocketPtr Accept(const Socket &, bool) noexcept;
         int SendTo(Socket& socket, const void* data, const size_t len) noexcept;
         int ReceiveFrom(Socket& socket, void* buffer, const size_t len) noexcept;
 

@@ -23,16 +23,8 @@ namespace sockupp {
 
     Socket::Socket() noexcept {
         std::memset(&GetSockAddress(), 0, GetSize());
+        m_socklen = sizeof m_sockaddr;
     }
-
-    inline socklen_t & Socket::GetSize() noexcept {
-        return m_socklen;
-    }
-
-    inline sockaddr& Socket::GetSockAddress() noexcept {
-        return m_sockaddr;
-    }
-
 }
 
 // TODO: Setting Test

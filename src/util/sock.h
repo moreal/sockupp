@@ -2,14 +2,12 @@
 // Created by moreal on 18. 8. 9.
 //
 
-#ifndef SOCKUPP_SOCKETUTIL_H
-#define SOCKUPP_SOCKETUTIL_H
+#ifndef SRC_UTIL_SOCK_H
+#define SRC_UTIL_SOCK_H
 
 #include <string>
 #include <sys/types.h>
 #include <netinet/in.h>
-
-#include "../sockets/tcpsocket.h"
 
 namespace sockupp {
     class SockUtil {
@@ -17,8 +15,8 @@ namespace sockupp {
 
     private:
         static sockaddr getSockAddr(const std::string &);
-        static sockaddr getSockAddr(const std::string &, const uint16_t);
+        static sockaddr getSockAddr(const std::string &, uint16_t);
     };
 }
 
-#endif //SOCKUPP_SOCKETUTIL_H
+#endif  // SRC_UTIL_SOCK_H

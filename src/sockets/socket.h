@@ -1,7 +1,6 @@
-#ifndef SRC_SOCKETS_SOCKET_H
-#define SRC_SOCKETS_SOCKET_H
 
-#include "tcpsocket.h"
+#ifndef SRC_SOCKETS_SOCKET_H
+#define SRC_SOKCETS_SOCKET_H
 
 #include <string>
 
@@ -10,15 +9,19 @@
 
 namespace sockupp {
     class Socket {
-
     public:
         Socket(const std::string&, const uint16_t) noexcept;
         explicit Socket(const std::string&) noexcept;
         explicit Socket(const sockaddr&) noexcept;
         Socket() noexcept;
 
-        inline socklen_t & GetSize() noexcept;
-        inline sockaddr& GetSockAddress() noexcept;
+        inline socklen_t & GetSize() noexcept {
+            return m_socklen;
+        }
+
+        inline sockaddr& GetSockAddress() noexcept {
+            return m_sockaddr;
+        }
 
     private:
         sockaddr m_sockaddr;
@@ -26,4 +29,4 @@ namespace sockupp {
     };
 }
 
-#endif
+#endif // SRC_SOCKETS_SOCKET_H

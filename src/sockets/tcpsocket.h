@@ -2,11 +2,10 @@
 // Created by moreal on 18. 8. 9.
 //
 
-#ifndef SOCKUPP_TCPSOCKET_H
-#define SOCKUPP_TCPSOCKET_H
+#ifndef SRC_SOCKETS_TCPSOCKET_H
+#define SRC_SOCKETS_TCPSOCKET_H
 
 #include "socket.h"
-#include "socket.cc"
 
 #include <string>
 #include <memory>
@@ -41,5 +40,4 @@ namespace sockupp {
 
 }
 
-
-#endif //SOCKUPP_TCPSOCKET_H
+#endif
