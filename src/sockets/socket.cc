@@ -28,4 +28,3 @@ namespace sockupp {
 }
 
 // TODO: Setting Test
-// TODO: Util

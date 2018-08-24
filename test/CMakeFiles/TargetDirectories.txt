@@ -1,0 +1,3 @@
+/home/moreal/Github/Library/Cpp/sockupp/test/CMakeFiles/rebuild_cache.dir
+/home/moreal/Github/Library/Cpp/sockupp/test/CMakeFiles/runTests.dir
+/home/moreal/Github/Library/Cpp/sockupp/test/CMakeFiles/edit_cache.dir

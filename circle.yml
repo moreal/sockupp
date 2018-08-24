@@ -1,0 +1,21 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: ubuntu:latest
+
+    steps:
+      - checkout
+      - run:
+          name: Build Shared Library
+
+  test:
+    docker:
+      - image: ubuntu:latest
+
+    steps:
+      - checkout
+
+
+workflows:
+  - build

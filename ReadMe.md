@@ -1,0 +1,2 @@
+# sockupp
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/827fbbdea47d42779b2ce6c118d30f4b)](https://www.codacy.com/project/dogeonlove0326/sockupp/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=moreal/sockupp&amp;utm_campaign=Badge_Grade_Dashboard)
