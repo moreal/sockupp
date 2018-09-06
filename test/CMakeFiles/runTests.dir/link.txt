@@ -1,1 +1,0 @@
-/usr/bin/c++     CMakeFiles/runTests.dir/tcpsocket.cc.o  -o runTests -Wl,-rpath,/home/moreal/Github/Library/Cpp/sockupp/test/lib lib/libsockupp.so 
